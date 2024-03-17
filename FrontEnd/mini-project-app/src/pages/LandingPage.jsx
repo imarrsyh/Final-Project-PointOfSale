@@ -9,6 +9,8 @@ import {
 } from "../store/cartSlice";
 
 function LandingPage() {
+  //Need Update
+  //Update terkait get product dari API
   const products = useSelector((state) => state.products.list);
   const orders = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -45,6 +47,7 @@ function LandingPage() {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <div className="container py-10 mx-auto">
         <h1 className="text-3xl font-bold text-center">Halaman Order Produk</h1>
+        <h1>Tambah navbar: history transaction, detail transaksi</h1>
         <div className="grid grid-cols-12 gap-4 mt-10">
           <div className="col-span-12 md:col-span-8">
             <h2 className="mb-4 text-2xl font-bold">Daftar Produk</h2>
