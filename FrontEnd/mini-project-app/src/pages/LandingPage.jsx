@@ -7,6 +7,7 @@ import {
   incrementQuantity,
   removeProductFromCart,
 } from "../store/cartSlice";
+import Navbar from "../components/Navbar";
 
 function LandingPage() {
   //Need Update
@@ -47,9 +48,8 @@ function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
+      <Navbar />
       <div className="container py-10 mx-auto">
-        <h1 className="text-3xl font-bold text-center">Halaman Order Produk</h1>
-        <h1>Tambah navbar: history transaction, modul produk</h1>
         <div className="grid grid-cols-12 gap-4 mt-10">
           <div className="col-span-12 md:col-span-8">
             <h2 className="mb-4 text-2xl font-bold">Daftar Produk</h2>
