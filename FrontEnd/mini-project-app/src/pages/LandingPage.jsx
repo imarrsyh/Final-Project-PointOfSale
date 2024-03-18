@@ -11,6 +11,8 @@ import {
 function LandingPage() {
   //Need Update
   //Update terkait get product dari API
+  //Update terkait search and sort
+  //langsung dari API aja get product
   const products = useSelector((state) => state.products.list);
   const orders = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -47,7 +49,7 @@ function LandingPage() {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <div className="container py-10 mx-auto">
         <h1 className="text-3xl font-bold text-center">Halaman Order Produk</h1>
-        <h1>Tambah navbar: history transaction, detail transaksi</h1>
+        <h1>Tambah navbar: history transaction, modul produk</h1>
         <div className="grid grid-cols-12 gap-4 mt-10">
           <div className="col-span-12 md:col-span-8">
             <h2 className="mb-4 text-2xl font-bold">Daftar Produk</h2>
@@ -76,6 +78,7 @@ function LandingPage() {
               ))}
             </div>
           </div>
+
           <div className="col-span-12 md:col-span-4">
             <h2 className="mb-4 text-2xl font-bold">Daftar Pesanan</h2>
             <div className="p-4 bg-white rounded-md shadow-md">
@@ -119,7 +122,7 @@ function LandingPage() {
                   Total: Rp {total}
                 </div>
                 <button
-                  className="px-4 py-2 ml-4 text-white bg-green-500 rounded-md hover:bg-green-600"
+                  className="px-4 py-2 ml-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 disabled:opacity-50"
                   onClick={handleGoToPayment}
                   disabled={orders.length === 0}
                 >

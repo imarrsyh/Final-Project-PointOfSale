@@ -31,36 +31,10 @@ function PaymentPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-md shadow-md">
-        <h1 className="mb-6 text-3xl font-bold">Halaman Pembayaran</h1>
-        <div className="mb-4">
-          <label htmlFor="totalPrice" className="block font-bold text-gray-700">
-            Total Price:
-          </label>
-          <span id="totalPrice" className="ml-2 font-bold">
-            Rp {total}
-          </span>
-        </div>
-        <div className="mb-4">
-          <label htmlFor="amountPaid" className="block font-bold text-gray-700">
-            Amount Paid:
-          </label>
-          <input
-            type="number"
-            id="amountPaid"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md"
-            value={amountPaid}
-            onChange={handleAmountPaidChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="orderDetails"
-            className="block font-bold text-gray-700"
-          >
-            Order Details:
-          </label>
-          <ul id="orderDetails" className="ml-2">
+      <div className="flex p-8 bg-white rounded-md shadow-md">
+        <div className="flex-1">
+          <h1 className="mb-6 text-3xl font-bold">Rincian Pesanan</h1>
+          <ul id="orderDetails">
             {orders.map((order) => (
               <li key={order.id} className="mb-2">
                 {order.name} ({order.quantity}) - Rp{" "}
@@ -69,21 +43,50 @@ function PaymentPage() {
             ))}
           </ul>
         </div>
-        <div className="mb-6">
-          <label htmlFor="change" className="block font-bold text-gray-700">
-            Change:
-          </label>
-          <span id="change" className="ml-2 font-bold">
-            Rp {change}
-          </span>
+        <div className="w-px mx-2 bg-black"></div>
+        <div className="flex flex-col justify-between ml-8">
+          <div className="mb-4">
+            <label
+              htmlFor="totalPrice"
+              className="block font-bold text-gray-700"
+            >
+              Total:
+            </label>
+            <span id="totalPrice" className="ml-2 font-bold">
+              Rp {total}
+            </span>
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="amountPaid"
+              className="block font-bold text-gray-700"
+            >
+              Dibayar:
+            </label>
+            <input
+              type="number"
+              id="amountPaid"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              value={amountPaid}
+              onChange={handleAmountPaidChange}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="change" className="block font-bold text-gray-700">
+              Kembalian:
+            </label>
+            <span id="change" className="ml-2 font-bold">
+              Rp {change}
+            </span>
+          </div>
+          <button
+            className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 disabled:opacity-50"
+            onClick={handleOrder}
+            disabled={amountPaid < total}
+          >
+            Order
+          </button>
         </div>
-        <button
-          className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 disabled:opacity-50"
-          onClick={handleOrder}
-          disabled={amountPaid < total}
-        >
-          Order
-        </button>
       </div>
     </div>
   );
